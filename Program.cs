@@ -6,19 +6,43 @@ namespace COMP003A.Assignment7
     {
         static void Main(string[] args)
         {
+            SectionSeparator("Array - Character Counter");
+
             Console.WriteLine("Please enter a letter");
             char characterInput = Convert.ToChar(Console.ReadLine());
             Console.WriteLine("Please enter a word");
             string word = Convert.ToString(Console.ReadLine());
             CharacterCounter(characterInput, word);
-            
+
+            SectionSeparator("Array - Palindrome");
             Console.WriteLine("Enter a word to check if it is a palindrome");
             string palindrome = Convert.ToString(Console.ReadLine());
             IsPalindrome(palindrome);
 
+            List<string> names = new List<string>();
+            names.Add("Magaly");
+            names.Add("Rodriguez");
+            names.Add("Velazquez");
 
+            char userInput = default;
+            do
+            {
+                Console.WriteLine("Press any key to add more or (e) to exit.");
+                userInput = Convert.ToChar(Console.ReadLine);
+            }
+            while (userInput != 'e');
+
+            TraverseListReverse(names);
+
+            
         }
         
+        static void SectionSeparator(string section)
+        {
+            Console.WriteLine("".PadRight(50, '*'));
+            Console.WriteLine($"{section} section");
+            Console.WriteLine("".PadRight('*'));
+        }
         static int CharacterCounter(char characterInput, string word)
         {
             int count = 0;
@@ -56,7 +80,7 @@ namespace COMP003A.Assignment7
 
         static void TraverseListReverse(List<string>list)
         {
-
+            list.Reverse();
         }
     }
 }
